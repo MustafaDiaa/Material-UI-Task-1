@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid2 as Grid, Typography, Button } from "@mui/material";
 
 export default function InfoSection({
@@ -11,41 +10,55 @@ export default function InfoSection({
   return (
     <Grid
       container
-      spacing={2}
+      spacing={4}
       sx={{
         flexDirection: reverse ? "row-reverse" : "row",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 15,
-        paddingBottom: 10,
-        backgroundColor: "#f0f0f0",
-        borderRadius: "8px",
+        padding: 5,
+        backgroundColor: "#ffffff",
+        borderRadius: "12px",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
       }}
     >
       <Grid
+        item
         xs={12}
         sm={6}
-        sx={{ marginRight: reverse ? 2 : 0, marginLeft: reverse ? 0 : 2 }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+        }}
       >
         <Typography
           variant="h4"
           sx={{
             marginBottom: 2,
             fontFamily: "'Roboto', sans-serif",
-            fontWeight: 600,
-            color: "#333",
+            fontWeight: 700,
+            color: "#222",
           }}
         >
           {title}
         </Typography>
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           {items.map((item, index) => (
             <li
               key={index}
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginBottom: "8px",
+                marginBottom: "12px",
+                padding: "8px",
+                borderRadius: "6px",
+                transition: "background-color 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#f7f7f7";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
               {item.icon}
@@ -54,7 +67,7 @@ export default function InfoSection({
                 sx={{
                   marginLeft: 1,
                   fontFamily: "'Roboto', sans-serif",
-                  fontWeight: 400,
+                  fontWeight: 500,
                   color: "#555",
                 }}
               >
@@ -67,10 +80,10 @@ export default function InfoSection({
           <Button
             variant="contained"
             sx={{
-              marginLeft: 5,
+              marginTop: 3,
               backgroundColor: "#f5945c",
               boxShadow: "none",
-              fontWeight: 500,
+              fontWeight: 600,
               "&:hover": {
                 backgroundColor: "#d68e3e",
               },
@@ -81,15 +94,21 @@ export default function InfoSection({
         )}
       </Grid>
 
-      <Grid xs={12} sm={6} sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
         <img
           src={image}
           alt={title}
           style={{
             width: "100%",
-            maxWidth: "500px",
+            maxWidth: "400px",
             height: "auto",
-            borderRadius: "8px",
+            borderRadius: "12px",
+            boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
           }}
         />
       </Grid>

@@ -1,6 +1,4 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
+import { Box, Typography, Button } from "@mui/material";
 import heroImage from "../../assets/hero.png";
 
 export default function HeroSection() {
@@ -12,20 +10,22 @@ export default function HeroSection() {
         alignItems: "center",
         justifyContent: "center",
         height: "400px",
-        background: "linear-gradient(to right, #002a36, #004d57, #006080)",
+        background: "linear-gradient(to right, #003C50, #005976, #006080)",
         textAlign: "center",
         position: "relative",
-        padding: 3,
+        padding: 4,
+        overflow: "hidden",
       }}
     >
       <Typography
         variant="h4"
         sx={{
-          marginBottom: 3,
+          marginBottom: 2,
           fontFamily: "'Roboto', sans-serif",
-          fontWeight: 600,
-          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontWeight: 700,
+          fontSize: { xs: "1.8rem", md: "2.5rem" },
           color: "#ffffff",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
         }}
       >
         Find a developer for live mentorship & freelance projects
@@ -33,22 +33,28 @@ export default function HeroSection() {
       <Button
         variant="contained"
         sx={{
-          marginBottom: 3,
+          marginBottom: 2,
           backgroundColor: "#f5945c",
-          padding: "10px 20px",
-          fontWeight: 500,
+          padding: "12px 24px",
+          fontWeight: 600,
+          "&:hover": {
+            backgroundColor: "#f69c7e",
+          },
         }}
       >
         GET HELP NOW
       </Button>
-      <img
+      <Box
+        component="img"
         src={heroImage}
-        alt="Placeholder"
-        style={{
-          width: "600px",
+        alt="Hero Illustration"
+        sx={{
+          width: "700px",
           height: "auto",
           position: "absolute",
-          bottom: -110,
+          bottom: -80,
+          right: 0,
+          transform: "translateX(20%)",
         }}
       />
     </Box>

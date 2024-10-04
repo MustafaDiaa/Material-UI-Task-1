@@ -21,143 +21,74 @@ export default function Footer() {
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
-        <IconButton
-          component={Link}
-          href="https://facebook.com"
-          target="_blank"
-          color="inherit"
-        >
-          <Facebook />
-        </IconButton>
-        <IconButton
-          component={Link}
-          href="https://twitter.com"
-          target="_blank"
-          color="inherit"
-        >
-          <Twitter />
-        </IconButton>
-        <IconButton
-          component={Link}
-          href="https://instagram.com"
-          target="_blank"
-          color="inherit"
-        >
-          <Instagram />
-        </IconButton>
-        <IconButton
-          component={Link}
-          href="https://github.com"
-          target="_blank"
-          color="inherit"
-        >
-          <GitHub />
-        </IconButton>
-        <IconButton
-          component={Link}
-          href="https://linkedin.com"
-          target="_blank"
-          color="inherit"
-        >
-          <LinkedIn />
-        </IconButton>
-        <IconButton
-          component={Link}
-          href="https://youtube.com"
-          target="_blank"
-          color="inherit"
-        >
-          <YouTube />
-        </IconButton>
+        {[
+          { icon: <Facebook />, link: "https://facebook.com" },
+          { icon: <Twitter />, link: "https://twitter.com" },
+          { icon: <Instagram />, link: "https://instagram.com" },
+          { icon: <GitHub />, link: "https://github.com" },
+          { icon: <LinkedIn />, link: "https://linkedin.com" },
+          { icon: <YouTube />, link: "https://youtube.com" },
+        ].map(({ icon, link }, index) => (
+          <IconButton
+            key={index}
+            component={Link}
+            href={link}
+            target="_blank"
+            color="inherit"
+            sx={{ "&:hover": { color: "#f5945c" } }}
+          >
+            {icon}
+          </IconButton>
+        ))}
       </Box>
 
-      <Grid container spacing={2} justifyContent="center" sx={{ mb: 3 }}>
-        <Grid item>
-          <Typography variant="h6">Quick Links</Typography>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Services
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Contact
-          </Link>
-        </Grid>
-        <Grid item>
-          <Typography variant="h6">Resources</Typography>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Blog
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            FAQs
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Support
-          </Link>
-        </Grid>
-        <Grid item>
-          <Typography variant="h6">Company</Typography>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Careers
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Press
-          </Link>
-          <Link
-            href="#"
-            color="inherit"
-            sx={{ textDecoration: "none", display: "block", mt: 1 }}
-          >
-            Investors
-          </Link>
-        </Grid>
+      <Grid container spacing={4} justifyContent="center" sx={{ mb: 3 }}>
+        {[
+          {
+            title: "Quick Links",
+            links: ["About", "Services", "Contact"],
+          },
+          {
+            title: "Resources",
+            links: ["Blog", "FAQs", "Support"],
+          },
+          {
+            title: "Company",
+            links: ["Careers", "Press", "Investors"],
+          },
+        ].map((section, index) => (
+          <Grid item xs={12} sm={4} key={index}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              {section.title}
+            </Typography>
+            {section.links.map((link, idx) => (
+              <Link
+                href="#"
+                color="inherit"
+                sx={{ textDecoration: "none", display: "block", mt: 1 }}
+                key={idx}
+              >
+                {link}
+              </Link>
+            ))}
+          </Grid>
+        ))}
       </Grid>
 
-      <Typography variant="body2" sx={{ mt: 3 }}>
-        &copy; {new Date().getFullYear()} Mohammed Omran. All rights reserved.
-      </Typography>
-      <Typography variant="body2">
-        <Link href="#" color="inherit" sx={{ textDecoration: "none" }}>
-          Privacy Policy
-        </Link>{" "}
-        |{" "}
-        <Link href="#" color="inherit" sx={{ textDecoration: "none" }}>
-          Terms of Service
-        </Link>
-      </Typography>
+      <Box sx={{ mt: 3 }}>
+        <Typography variant="body2">
+          &copy; {new Date().getFullYear()} Mustafa Diaa. All rights reserved.
+        </Typography>
+        <Typography variant="body2">
+          <Link href="#" color="inherit" sx={{ textDecoration: "none" }}>
+            Privacy Policy
+          </Link>{" "}
+          |{" "}
+          <Link href="#" color="inherit" sx={{ textDecoration: "none" }}>
+            Terms of Service
+          </Link>
+        </Typography>
+      </Box>
     </Box>
   );
 }

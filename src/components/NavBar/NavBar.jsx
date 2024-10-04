@@ -24,26 +24,31 @@ export default function ButtonAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#003A47" }}>
+        {" "}
         <Toolbar>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ComputerIcon
-              sx={{ marginLeft: 2, marginRight: 1, color: "black" }}
-            />
+              sx={{ marginLeft: 2, marginRight: 1, color: "#f5945c" }}
+            />{" "}
             <Typography
               variant="h6"
               component="div"
-              sx={{ color: "black", fontWeight: "bold" }}
+              sx={{ color: "#f5945c", fontWeight: "bold", letterSpacing: 1 }}
             >
               Codementor
             </Typography>
-
             {/* Left Links */}
             <Button
               onClick={(event) => handleClick(event, setAnchorElMentorship)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{
+                color: "#f5945c",
+                marginLeft: 2,
+                textTransform: "none",
+                "&:hover": { backgroundColor: "rgba(245, 148, 92, 0.1)" },
+              }}
             >
-              Mentorship <ExpandMoreIcon />
+              Mentorship <ExpandMoreIcon sx={{ fontSize: "1.1rem" }} />
             </Button>
             <Menu
               anchorEl={anchorElMentorship}
@@ -57,12 +62,16 @@ export default function ButtonAppBar() {
                 Option 2
               </MenuItem>
             </Menu>
-
             <Button
               onClick={(event) => handleClick(event, setAnchorElHelp)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{
+                color: "#f5945c",
+                marginLeft: 2,
+                textTransform: "none",
+                "&:hover": { backgroundColor: "rgba(245, 148, 92, 0.1)" },
+              }}
             >
-              Expert Help <ExpandMoreIcon />
+              Expert Help <ExpandMoreIcon sx={{ fontSize: "1.1rem" }} />
             </Button>
             <Menu
               anchorEl={anchorElHelp}
@@ -76,12 +85,16 @@ export default function ButtonAppBar() {
                 Option 2
               </MenuItem>
             </Menu>
-
             <Button
               onClick={(event) => handleClick(event, setAnchorElFreelancing)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{
+                color: "#f5945c",
+                marginLeft: 2,
+                textTransform: "none",
+                "&:hover": { backgroundColor: "rgba(245, 148, 92, 0.1)" },
+              }}
             >
-              Freelancing <ExpandMoreIcon />
+              Freelancing <ExpandMoreIcon sx={{ fontSize: "1.1rem" }} />
             </Button>
             <Menu
               anchorEl={anchorElFreelancing}
@@ -97,21 +110,36 @@ export default function ButtonAppBar() {
             </Menu>
           </Box>
 
-          {/* Right Links */}
           <Box
             sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
           >
-            <Button sx={{ color: "black", textTransform: "none" }}>
+            <Button
+              sx={{
+                color: "#f5945c",
+                textTransform: "none",
+                marginLeft: 2,
+                "&:hover": { backgroundColor: "rgba(245, 148, 92, 0.1)" },
+              }}
+            >
               Become a Mentor
             </Button>
-            <Button sx={{ color: "black", textTransform: "none" }}>
+            <Button
+              sx={{
+                color: "#f5945c",
+                textTransform: "none",
+                marginLeft: 2,
+                "&:hover": { backgroundColor: "rgba(245, 148, 92, 0.1)" },
+              }}
+            >
               Log In
             </Button>
             <Button
               sx={{
                 color: "white",
-                backgroundColor: "black",
+                backgroundColor: "#f5945c",
                 textTransform: "none",
+                marginLeft: 2,
+                "&:hover": { backgroundColor: "#d68e3e" },
               }}
             >
               Sign Up
